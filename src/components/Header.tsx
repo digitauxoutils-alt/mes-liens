@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-md z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
               <a
                 key={index}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-gray-700 hover:text-[#0A3764] transition-colors duration-300 font-medium"
+                className="text-[#0A3764] hover:text-[#0A3764]/70 transition-colors duration-300 font-medium"
               >
                 {item}
               </a>
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-[#0A3764]/10 transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                 <a
                   key={index}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block px-4 py-2 text-gray-700 hover:text-[#0A3764] hover:bg-gray-50 transition-colors duration-300 font-medium"
+                  className="block px-4 py-2 text-[#0A3764] hover:text-[#0A3764]/70 hover:bg-[#0A3764]/5 transition-colors duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}

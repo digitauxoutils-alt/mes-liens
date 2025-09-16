@@ -60,14 +60,14 @@ const QRSection: React.FC = () => {
   ];
 
   return (
-    <section id="mes-qr-codes" className="py-20 bg-white">
+    <section id="mes-qr-codes" className="py-20 bg-[#0A3764]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#0A3764] mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Mes QR Codes
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Scannez pour accéder rapidement à mes différents réseaux et plateformes
           </p>
         </div>
@@ -117,7 +117,7 @@ const QRSection: React.FC = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#0A3764] to-[#0A3764]/80 rounded-2xl p-8 text-white">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white border border-white/20">
             <h3 className="text-2xl font-bold mb-4">Restons connectés !</h3>
             <p className="text-lg mb-6 opacity-90">
               Utilisez votre téléphone pour scanner les QR codes et accéder instantanément à mes réseaux

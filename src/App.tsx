@@ -7,7 +7,7 @@ import ColorBar from './components/ColorBar';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white font-['Inter',_'system-ui',_sans-serif] border-8 border-double border-[#0A3764]">
+    <div className="min-h-screen bg-[#0A3764] font-['Inter',_'system-ui',_sans-serif] border-8 border-double border-[#0A3764]">
       <Header />
       <ColorBar />
       <main>
