@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Linkedin, Youtube, Globe, Github, Facebook, Twitter, MessageCircle } from 'lucide-react';
+import QRCode from 'react-qr-code';
 
 const Hero: React.FC = () => {
   const socialLinks = [
@@ -60,10 +61,13 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center bg-[#0A3764] pt-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section
+      id="accueil"
+      className="min-h-screen flex items-center justify-center bg-[#0A3764] pt-16 border-[12px] border-white"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Profile Photo */}
-        <div className="mb-8">
+        <div className="mb-10">
           <div className="relative inline-block">
             <img
               src="https://i.ibb.co/SXkgwHyT/profile-pic-1.png"
@@ -75,7 +79,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Welcome Message */}
-        <div className="mb-12">
+        <div className="mb-14">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Bienvenue !
           </h1>
@@ -87,21 +91,40 @@ const Hero: React.FC = () => {
           </p>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="flex flex-wrap justify-center items-center gap-6">
+        {/* Social Media + QR Codes */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
           {socialLinks.map((social, index) => {
             const IconComponent = social.icon;
             return (
-              <a
+              <div
                 key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${social.color} w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group`}
-                aria-label={social.name}
+                className="flex flex-col items-center justify-center space-y-4"
               >
-                <IconComponent className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
-              </a>
+                {/* Icon */}
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${social.color} w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group`}
+                  aria-label={social.name}
+                >
+                  <IconComponent className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
+                </a>
+
+                {/* QR Code */}
+                <div className="bg-white p-2 rounded-lg shadow-md">
+                  <QRCode
+                    value={social.url}
+                    size={80}
+                    bgColor="#FFFFFF"
+                    fgColor="#0A3764"
+                    level="H"
+                  />
+                </div>
+
+                {/* Name */}
+                <p className="text-white font-medium">{social.name}</p>
+              </div>
             );
           })}
         </div>
