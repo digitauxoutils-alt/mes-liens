@@ -1,65 +1,74 @@
 import React from 'react';
-import { Instagram, Linkedin, Youtube, Globe, Github, Facebook, Twitter, MessageCircle } from 'lucide-react';
+import {
+  Instagram,
+  Linkedin,
+  Youtube,
+  Globe,
+  Github,
+  Facebook,
+  Twitter,
+  MessageCircle
+} from 'lucide-react';
 import QRCode from 'react-qr-code';
 
-const Hero: React.FC = () => {
-  const socialLinks = [
-    {
-      icon: Instagram,
-      name: 'Instagram',
-      url: 'https://www.instagram.com/renato_tchobo/',
-      color: 'bg-gradient-to-r from-purple-500 to-pink-500'
-    },
-    {
-      icon: Facebook,
-      name: 'Facebook',
-      url: 'https://www.facebook.com/profile.php?id=100083135836664&mibextid=ZbWKwL',
-      color: 'bg-blue-600'
-    },
-    {
-      icon: Twitter,
-      name: 'Twitter',
-      url: 'https://x.com/renatotchoboy',
-      color: 'bg-sky-500'
-    },
-    {
-      icon: Linkedin,
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/renato-tchobo',
-      color: 'bg-blue-700'
-    },
-    {
-      icon: MessageCircle,
-      name: 'WhatsApp',
-      url: 'https://wa.me/22958848420',
-      color: 'bg-green-500'
-    },
-    {
-      icon: Youtube,
-      name: 'YouTube',
-      url: 'https://youtube.com/@renato-tchobo',
-      color: 'bg-red-600'
-    },
-    {
-      icon: Globe,
-      name: 'Pinterest',
-      url: 'https://www.pinterest.com/renatotchobo',
-      color: 'bg-red-500'
-    },
-    {
-      icon: Globe,
-      name: 'Portfolio',
-      url: 'https://renatotchobo.com',
-      color: 'bg-[#0A3764]'
-    },
-    {
-      icon: Github,
-      name: 'GitHub',
-      url: 'https://github.com/tcbrenato',
-      color: 'bg-gray-800'
-    }
-  ];
+const socialLinks = [
+  {
+    icon: Instagram,
+    name: 'Instagram',
+    url: 'https://www.instagram.com/renato_tchobo/',
+    color: 'bg-gradient-to-r from-purple-500 to-pink-500'
+  },
+  {
+    icon: Facebook,
+    name: 'Facebook',
+    url: 'https://www.facebook.com/profile.php?id=100083135836664&mibextid=ZbWKwL',
+    color: 'bg-blue-600'
+  },
+  {
+    icon: Twitter,
+    name: 'Twitter',
+    url: 'https://x.com/renatotchoboy',
+    color: 'bg-sky-500'
+  },
+  {
+    icon: Linkedin,
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/renato-tchobo',
+    color: 'bg-blue-700'
+  },
+  {
+    icon: MessageCircle,
+    name: 'WhatsApp',
+    url: 'https://wa.me/22958848420',
+    color: 'bg-green-500'
+  },
+  {
+    icon: Youtube,
+    name: 'YouTube',
+    url: 'https://youtube.com/@renato-tchobo',
+    color: 'bg-red-600'
+  },
+  {
+    icon: Globe,
+    name: 'Pinterest',
+    url: 'https://www.pinterest.com/renatotchobo',
+    color: 'bg-red-500'
+  },
+  {
+    icon: Globe,
+    name: 'Portfolio',
+    url: 'https://renatotchobo.com',
+    color: 'bg-[#0A3764]'
+  },
+  {
+    icon: Github,
+    name: 'GitHub',
+    url: 'https://github.com/tcbrenato',
+    color: 'bg-gray-800'
+  }
+];
 
+const Hero: React.FC = () => {
   return (
     <section
       id="accueil"
@@ -87,44 +96,27 @@ const Hero: React.FC = () => {
             Je suis <span className="text-white font-bold">Rénato Tchobo</span>
           </p>
           <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Retrouvez-moi facilement à travers mes réseaux sociaux et mes coordonnées pour échanger, collaborer ou en savoir plus sur mon travail dans le développement web et la création numérique.
+            Retrouvez-moi facilement à travers mes réseaux sociaux et mes
+            coordonnées pour échanger, collaborer ou en savoir plus sur mon
+            travail dans le développement web et la création numérique.
           </p>
         </div>
 
-        {/* Social Media + QR Codes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+        {/* Social Media Icons */}
+        <div className="flex flex-wrap justify-center items-center gap-6">
           {socialLinks.map((social, index) => {
             const IconComponent = social.icon;
             return (
-              <div
+              <a
                 key={index}
-                className="flex flex-col items-center justify-center space-y-4"
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${social.color} w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group`}
+                aria-label={social.name}
               >
-                {/* Icon */}
-                <a
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${social.color} w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group`}
-                  aria-label={social.name}
-                >
-                  <IconComponent className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
-                </a>
-
-                {/* QR Code */}
-                <div className="bg-white p-2 rounded-lg shadow-md">
-                  <QRCode
-                    value={social.url}
-                    size={80}
-                    bgColor="#FFFFFF"
-                    fgColor="#0A3764"
-                    level="H"
-                  />
-                </div>
-
-                {/* Name */}
-                <p className="text-white font-medium">{social.name}</p>
-              </div>
+                <IconComponent className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
+              </a>
             );
           })}
         </div>
@@ -134,6 +126,42 @@ const Hero: React.FC = () => {
           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const QRCodes: React.FC = () => {
+  return (
+    <section
+      id="mes-qr-codes"
+      className="min-h-screen flex items-center justify-center bg-white border-[12px] border-white py-20"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#0A3764] mb-12">
+          Mes QR Codes
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
+          {socialLinks.map((social, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center space-y-4"
+            >
+              <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+                <QRCode
+                  value={social.url}
+                  size={120}
+                  bgColor="#FFFFFF"
+                  fgColor="#0A3764"
+                  level="H"
+                />
+              </div>
+              <p className="text-lg font-semibold text-[#0A3764]">
+                {social.name}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
