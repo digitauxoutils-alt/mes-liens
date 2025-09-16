@@ -23,17 +23,19 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-[#195885]">Rénato Tchobo</span>
-            <Code2 className="w-6 h-6 text-[#69DEF0]" />
+            <a href="#accueil" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+              <span className="text-2xl font-bold text-[#0A3764]">Rénato Tchobo</span>
+              <Code2 className="w-6 h-6 text-[#0A3764]" />
+            </a>
           </div>
 
           {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {menuItems.map((item, index) => (
+            {menuItems.slice(0, 3).map((item, index) => (
               <a
                 key={index}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-gray-700 hover:text-[#195885] transition-colors duration-300 font-medium"
+                className="text-gray-700 hover:text-[#0A3764] transition-colors duration-300 font-medium"
               >
                 {item}
               </a>
@@ -47,9 +49,9 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-[#195885]" />
+              <X className="w-6 h-6 text-[#0A3764]" />
             ) : (
-              <Menu className="w-6 h-6 text-[#195885]" />
+              <Menu className="w-6 h-6 text-[#0A3764]" />
             )}
           </button>
         </div>
@@ -58,11 +60,11 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100">
             <div className="py-4 space-y-4">
-              {menuItems.map((item, index) => (
+              {menuItems.slice(0, 3).map((item, index) => (
                 <a
                   key={index}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block px-4 py-2 text-gray-700 hover:text-[#195885] hover:bg-gray-50 transition-colors duration-300 font-medium"
+                  className="block px-4 py-2 text-gray-700 hover:text-[#0A3764] hover:bg-gray-50 transition-colors duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}

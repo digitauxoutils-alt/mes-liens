@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
       icon: Globe,
       name: 'Portfolio',
       url: 'https://renatotchobo.com',
-      color: 'bg-[#195885]'
+      color: 'bg-[#0A3764]'
     },
     {
       icon: Github,
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50 pt-16">
+    <section id="accueil" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50 pt-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Profile Photo */}
         <div className="mb-8">
@@ -70,17 +70,17 @@ const Hero: React.FC = () => {
               alt="Rénato Tchobo"
               className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white shadow-2xl"
             />
-            <div className="absolute inset-0 rounded-full ring-4 ring-[#69DEF0]/30 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full ring-4 ring-[#0A3764]/30 animate-pulse"></div>
           </div>
         </div>
 
         {/* Welcome Message */}
         <div className="mb-12">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#195885] mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A3764] mb-6 leading-tight">
             Bienvenue !
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 mb-4">
-            Je suis <span className="text-[#195885] font-bold">Rénato Tchobo</span>
+            Je suis <span className="text-[#0A3764] font-bold">Rénato Tchobo</span>
           </p>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Retrouvez-moi facilement à travers mes réseaux sociaux et mes coordonnées pour échanger, collaborer ou en savoir plus sur mon travail dans le développement web et la création numérique.
@@ -108,8 +108,8 @@ const Hero: React.FC = () => {
 
         {/* Scroll Indicator */}
         <div className="mt-16 animate-bounce">
-          <div className="w-6 h-10 border-2 border-[#195885] rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-[#195885] rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-[#0A3764] rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-[#0A3764] rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>

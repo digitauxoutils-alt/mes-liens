@@ -49,7 +49,7 @@ const QRSection: React.FC = () => {
       icon: Globe,
       name: 'Portfolio',
       description: 'Visitez mon site web',
-      color: 'bg-[#195885]'
+      color: 'bg-[#0A3764]'
     },
     {
       icon: Github,
@@ -64,7 +64,7 @@ const QRSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#195885] mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#0A3764] mb-4">
             Mes QR Codes
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -92,14 +92,14 @@ const QRSection: React.FC = () => {
                     <QrCode className="w-20 h-20 text-gray-400" />
                   </div>
                   {/* Decorative corners */}
-                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-[#195885] rounded-tl"></div>
-                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-[#195885] rounded-tr"></div>
-                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-[#195885] rounded-bl"></div>
-                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-[#195885] rounded-br"></div>
+                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-[#0A3764] rounded-tl"></div>
+                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-[#0A3764] rounded-tr"></div>
+                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-[#0A3764] rounded-bl"></div>
+                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-[#0A3764] rounded-br"></div>
                 </div>
 
                 {/* Title and Description */}
-                <h3 className="text-xl font-bold text-[#195885] text-center mb-2">
+                <h3 className="text-xl font-bold text-[#0A3764] text-center mb-2">
                   {qr.name}
                 </h3>
                 <p className="text-gray-600 text-center text-sm">
@@ -107,7 +107,7 @@ const QRSection: React.FC = () => {
                 </p>
 
                 {/* Scan Button */}
-                <button className="w-full mt-4 bg-[#69DEF0] hover:bg-[#195885] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+                <button className="w-full mt-4 bg-[#0A3764] hover:bg-[#0A3764]/80 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
                   Scanner
                 </button>
               </div>
@@ -117,7 +117,7 @@ const QRSection: React.FC = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#195885] to-[#69DEF0] rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-[#0A3764] to-[#0A3764]/80 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Restons connectés !</h3>
             <p className="text-lg mb-6 opacity-90">
               Utilisez votre téléphone pour scanner les QR codes et accéder instantanément à mes réseaux
