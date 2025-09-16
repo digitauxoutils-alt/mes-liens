@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Code2 } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [text, setText] = useState('');
+  const fullText = '🟢🟡🔴';
 
   const menuItems = [
     'Accueil',
@@ -16,6 +18,21 @@ const Header: React.FC = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Effet typewriter
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i + 1));
+      i++;
+      if (i === fullText.length) {
+        clearInterval(interval);
+        setTimeout(() => setText(''), 1500); // Reset après un petit délai
+      }
+    }, 300);
+
+    return () => clearInterval(interval);
+  }, [text]);
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-md z-50 shadow-sm">
@@ -73,6 +90,11 @@ const Header: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Barre typewriter (Vert Jaune Rouge) */}
+      <div className="w-full text-center bg-black text-lg font-bold tracking-widest">
+        <span className="inline-block py-1 text-white">{text}</span>
       </div>
     </header>
   );
