@@ -8,8 +8,8 @@ const Header: React.FC = () => {
   const [index, setIndex] = useState(0);
 
   const fullText = 'Rénato Tchobo';
-  const speed = isDeleting ? 100 : 150; // vitesse de frappe et suppression
-  const pause = 1200; // pause avant effacement
+  const typingSpeed = isDeleting ? 80 : 120; // vitesse écriture / effacement
+  const pause = 1500; // pause avant effacement
 
   const menuItems = [
     'Accueil',
@@ -20,9 +20,7 @@ const Header: React.FC = () => {
     'Collaborations'
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // Animation typewriter
   useEffect(() => {
@@ -32,12 +30,12 @@ const Header: React.FC = () => {
       timer = setTimeout(() => {
         setText(fullText.slice(0, index + 1));
         setIndex(index + 1);
-      }, speed);
+      }, typingSpeed);
     } else if (isDeleting && index > 0) {
       timer = setTimeout(() => {
         setText(fullText.slice(0, index - 1));
         setIndex(index - 1);
-      }, speed);
+      }, typingSpeed);
     } else if (index === fullText.length) {
       timer = setTimeout(() => setIsDeleting(true), pause);
     } else if (isDeleting && index === 0) {
@@ -53,10 +51,13 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo avec typewriter */}
           <div className="flex items-center space-x-2">
-            <a href="#accueil" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <span className="text-2xl font-bold text-[#0A3764]">
+            <a
+              href="#accueil"
+              className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            >
+              <span className="text-2xl font-bold text-[#0A3764] relative">
                 {text}
-                <span className="animate-pulse">|</span>
+                <span className="border-r-2 border-[#0A3764] animate-pulse ml-1" />
               </span>
               <Code2 className="w-6 h-6 text-[#0A3764]" />
             </a>
@@ -64,9 +65,9 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {menuItems.slice(0, 3).map((item, index) => (
+            {menuItems.slice(0, 3).map((item, idx) => (
               <a
-                key={index}
+                key={idx}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="text-[#0A3764] hover:text-[#0A3764]/70 transition-colors duration-300 font-medium"
               >
@@ -93,9 +94,9 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-100">
             <div className="py-4 space-y-4">
-              {menuItems.slice(0, 3).map((item, index) => (
+              {menuItems.slice(0, 3).map((item, idx) => (
                 <a
-                  key={index}
+                  key={idx}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="block px-4 py-2 text-[#0A3764] hover:text-[#0A3764]/70 hover:bg-[#0A3764]/5 transition-colors duration-300 font-medium"
                   onClick={() => setIsMenuOpen(false)}
