@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Code2 } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const fullText = 'Rénato Tchobo';
+  const speed = isDeleting ? 100 : 150; // vitesse de frappe et suppression
+  const pause = 1200; // pause avant effacement
 
   const menuItems = [
     'Accueil',
@@ -17,14 +24,40 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Animation typewriter
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting && index < fullText.length) {
+      timer = setTimeout(() => {
+        setText(fullText.slice(0, index + 1));
+        setIndex(index + 1);
+      }, speed);
+    } else if (isDeleting && index > 0) {
+      timer = setTimeout(() => {
+        setText(fullText.slice(0, index - 1));
+        setIndex(index - 1);
+      }, speed);
+    } else if (index === fullText.length) {
+      timer = setTimeout(() => setIsDeleting(true), pause);
+    } else if (isDeleting && index === 0) {
+      setIsDeleting(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [index, isDeleting]);
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-md z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo avec typewriter */}
           <div className="flex items-center space-x-2">
             <a href="#accueil" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <span className="text-2xl font-bold text-[#0A3764]">Rénato Tchobo</span>
+              <span className="text-2xl font-bold text-[#0A3764]">
+                {text}
+                <span className="animate-pulse">|</span>
+              </span>
               <Code2 className="w-6 h-6 text-[#0A3764]" />
             </a>
           </div>
